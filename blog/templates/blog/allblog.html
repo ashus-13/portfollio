@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>My Portfolio</title>
+    <title>My Blog</title>
 
     <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -44,7 +44,7 @@
         <a class="nav-link" href="{% static 'Ashu_resume.pdf'%}">Resume</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{%url 'allblog'%}">Blog</a>
+        <a class="nav-link active" href="{%url 'allblog'%}">Blog</a>
       </li>
     </ul>
   </div>
@@ -52,34 +52,24 @@
 </header>
 
 <main role="main">
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1 class="jumbotron-heading">Hi, I'm Ashutosh Singh</h1>
-      <p class="lead text-muted">I love to code in python and looking to get something from it</p>
-      <p>
-        <a href="mailto:ashutosh.soccer@gmail.com" class="btn btn-primary my-2">e-mail me</a>
-      </p>
-      <img src="{% static 'vader.jpg'%}" height="300" width="200" />
-    </div>
-  </section>
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-      	{%for job in jobs.all%}
+	<div class="container">
+		<h1 class="text-center pt-3">Welcome to My Blog</h1>
+		<br/>
+		<br/>
+		<h2>Latest Blog's</h2>
+		<hr/>
+		{%for blog in blog.all%}
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-          	<img class="card-img-top" src="{{job.image.url}}"/>
             <div class="card-body">
-              <p class="card-text">{{ job.summary }}</p>
+              <p class="card-text"><a href="{%url 'detail' blog.id%}">{{ blog.place }}</a></p>
+              <p class="card-text">{{ blog.date_new }}</p>
+              <p class="card-text">{{ blog.activity_new}}</p>
             </div>
           </div>
         </div>  
         {% endfor %}
-      </div>
-    </div>
-  </div>
-
+	</div>
 </main>
 
 <footer class="text-muted">
@@ -91,3 +81,4 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script></body>
 </html>
+</h1>
